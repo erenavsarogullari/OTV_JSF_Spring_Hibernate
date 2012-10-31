@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xmlns="http://java.sun.com/xml/ns/javaee" 
+		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+		 id="WebApp_ID" 
+		 version="2.5">
+		 
+	  <display-name>OTV_JSF_PrimeFaces_Spring_Hibernate</display-name>
+	   
+	  <!-- Spring Context Configuration' s Path definition -->
+      <context-param>
+	     <param-name>contextConfigLocation</param-name>
+	     <param-value>
+		    /WEB-INF/applicationContext.xml
+	     </param-value>
+	  </context-param>
+	  
+	  <!-- The Bootstrap listener to start up and shut down Spring's root WebApplicationContext. It is registered to Servlet Container -->
+	  <listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	  </listener>
+	  <listener>
+		<listener-class>
+			org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	  </listener>
+	 
+	  <!-- Project Stage Level -->
+	  <context-param>
+	    <param-name>javax.faces.PROJECT_STAGE</param-name>
+	    <param-value>Development</param-value>
+	  </context-param>
+	  
+	  <!-- Welcome Page -->
+	  <welcome-file-list>
+	    <welcome-file>/pages/index.xhtml</welcome-file>
+	  </welcome-file-list>
+	  
+	  <!-- JSF Servlet is defined to container -->
+	  <servlet>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	  </servlet>
+	  
+	  <!-- Mapping with servlet and url for the http requests. -->
+	  <servlet-mapping>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <url-pattern>*.jsf</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <url-pattern>*.faces</url-pattern>
+	  </servlet-mapping>
+	  
+</web-app>

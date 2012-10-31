@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+     xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">  
+ <h:head><title>Welcome to OTV_JSF_Spring_Hibernate_Project</title></h:head>  
+ <h:body>
+     <h:form>      
+	     <table> 
+		     <tr>
+		     	<td><h:outputLabel for="id" value="Id : " /></td>
+		     	<td><p:inputText id="id" value="#{userMB.id}">
+		     			<f:converter converterId="javax.faces.Integer"/>
+		     		    <p:ajax event="blur" update="idMsg" />
+		     		</p:inputText>
+		     		<p:message id="idMsg" for="id" display="icon"/> 
+		     	</td>
+		     </tr>
+		     <tr>
+		     	<td><h:outputLabel for="name" value="Name : " /></td>
+		     	<td><p:inputText id="name" value="#{userMB.name}">
+		     			<f:validateLength minimum="5" /> 
+		     			<p:ajax event="blur" update="nameMsg" />
+		     		</p:inputText>
+		     		<p:message id="nameMsg" for="name" display="icon"/> 
+		     	</td>
+		     </tr>
+		     <tr>
+		     	<td><h:outputLabel for="surname" value="Surname : " /></td>   
+		     	<td><p:inputText id="surname" value="#{userMB.surname}"> 
+		     			<f:validateLength minimum="5" /> 
+		     			<p:ajax event="blur" update="surnameMsg" />  
+		     		</p:inputText>
+		     		<p:message id="surnameMsg" for="surname" display="icon"/> 
+		     	</td>    
+		     </tr>            
+	         <tr>
+		     	<td><p:commandButton id="addUser" value="Add" action="#{userMB.addUser}" ajax="false"/></td>
+		     	<td><p:commandButton id="reset" value="Reset" action="#{userMB.reset}" ajax="false"/></td>
+		     </tr>   
+	     </table>
+     </h:form>      
+</h:body>
+</html> 
